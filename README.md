@@ -13,9 +13,9 @@ Reconciled totals, after removing the three test bookings and inserting B9001, B
 
 Live dashboard: PASTE_YOUR_TABLEAU_PUBLIC_URL_HERE
 
-The dashboard workbook is `urban_service_dashboard.twbx`. It connects to `city_category_summary.csv` only. Do not connect `bookings.csv`; that file is the pre-clean extract and its revenue is ₹796 off this total.
+Build the dashboard in Tableau Public from `city_category_summary.csv` only. Do not connect `bookings.csv`. That file is the pre-clean extract and its revenue is ₹796 off this total.
 
-The workbook already contains:
+The published dashboard needs:
 
 - Total Revenue ₹10,47,973 and Total Bookings 600 at the top, plus SLA Breach Rate = SUM([sla_breaches]) / SUM([bookings_count]), which is 13.2% on the full extract.
 - Parameter Month Focus with January, February, and March, used by the calculated field Month Focus Label. The reconciled extract covers 2026-01, 2026-02, and 2026-03 and has no separate month column, so the parameter labels the month under review.
@@ -24,8 +24,6 @@ The workbook already contains:
 - A City to Category drill-down.
 - A city filter on every sheet, with the filter control visible.
 - Currency in ₹ only.
-
-Publish it with Tableau Public (the free edition): open `urban_service_dashboard.twbx`, choose Server, then Tableau Public, then Save to Tableau Public, and replace the placeholder above with the public URL.
 
 ## Repo map
 
