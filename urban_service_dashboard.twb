@@ -1,0 +1,652 @@
+<?xml version='1.0' encoding='utf-8'?>
+<workbook xmlns:user="http://www.tableausoftware.com/xml/user" original-version="18.1" source-build="2024.2.4" source-platform="mac" version="18.1">
+  <preferences />
+  <datasources>
+    <datasource caption="Parameters" inline="true" name="Parameters" version="18.1">
+      <column caption="Month Focus" datatype="string" name="[Month Focus]" param-domain-type="list" role="measure" type="nominal" value="&quot;January&quot;">
+        <calculation class="tableau" formula="&quot;January&quot;" />
+        <members>
+          <member value="&quot;January&quot;" />
+          <member value="&quot;February&quot;" />
+          <member value="&quot;March&quot;" />
+        </members>
+      </column>
+    </datasource>
+    <datasource caption="city_category_summary" inline="true" name="federated.citycategory" version="18.1">
+      <connection class="federated">
+        <named-connections>
+          <named-connection caption="city_category_summary.csv" name="textscan.citycategory">
+            <connection class="textscan" directory="." filename="city_category_summary.csv" password="" server="" />
+          </named-connection>
+        </named-connections>
+        <relation connection="textscan.citycategory" name="city_category_summary.csv" table="[city_category_summary#csv]" type="table">
+          <columns character-set="UTF-8" header="yes" locale="en_US" separator=",">
+            <column datatype="string" name="city" ordinal="0" />
+            <column datatype="string" name="category" ordinal="1" />
+            <column datatype="integer" name="bookings_count" ordinal="2" />
+            <column datatype="integer" name="revenue_inr" ordinal="3" />
+            <column datatype="integer" name="sla_breaches" ordinal="4" />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class="capability">
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[city_category_summary.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>city</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[city]</local-name>
+            <parent-name>[city_category_summary.csv]</parent-name>
+            <remote-alias>city</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <width>1073741823</width>
+            <collation flag="0" name="LEN_RUS" />
+            <object-id>[city_category_summary.csv_A1B2C3D4E5F64789A0B1C2D3E4F50617]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>category</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[category]</local-name>
+            <parent-name>[city_category_summary.csv]</parent-name>
+            <remote-alias>category</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <width>1073741823</width>
+            <collation flag="0" name="LEN_RUS" />
+            <object-id>[city_category_summary.csv_A1B2C3D4E5F64789A0B1C2D3E4F50617]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>bookings_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[bookings_count]</local-name>
+            <parent-name>[city_category_summary.csv]</parent-name>
+            <remote-alias>bookings_count</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <object-id>[city_category_summary.csv_A1B2C3D4E5F64789A0B1C2D3E4F50617]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>revenue_inr</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[revenue_inr]</local-name>
+            <parent-name>[city_category_summary.csv]</parent-name>
+            <remote-alias>revenue_inr</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <object-id>[city_category_summary.csv_A1B2C3D4E5F64789A0B1C2D3E4F50617]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>sla_breaches</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[sla_breaches]</local-name>
+            <parent-name>[city_category_summary.csv]</parent-name>
+            <remote-alias>sla_breaches</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <object-id>[city_category_summary.csv_A1B2C3D4E5F64789A0B1C2D3E4F50617]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled="yes" />
+      <column caption="city_category_summary.csv" datatype="table" name="[__tableau_internal_object_id__].[city_category_summary.csv_A1B2C3D4E5F64789A0B1C2D3E4F50617]" role="measure" type="quantitative" />
+      <column caption="City" datatype="string" name="[city]" role="dimension" type="nominal" />
+      <column caption="Category" datatype="string" name="[category]" role="dimension" type="nominal" />
+      <column caption="Bookings" datatype="integer" default-format="#,##0" name="[bookings_count]" role="measure" type="quantitative" />
+      <column caption="Revenue INR" datatype="integer" default-format="₹#,##0" name="[revenue_inr]" role="measure" type="quantitative" />
+      <column caption="SLA Breaches" datatype="integer" default-format="#,##0" name="[sla_breaches]" role="measure" type="quantitative" />
+      <column caption="SLA Breach Rate" datatype="real" default-format="0.0%" name="[Calculation_SLABreachRate]" role="measure" type="quantitative">
+        <calculation class="tableau" formula="SUM([sla_breaches]) / SUM([bookings_count])" />
+      </column>
+      <column caption="Month Focus Label" datatype="string" name="[Calculation_MonthFocusLabel]" role="dimension" type="nominal">
+        <calculation class="tableau" formula="[Parameters].[Month Focus]" />
+      </column>
+      <column caption="City Latitude" datatype="real" name="[Calculation_CityLatitude]" role="measure" semantic-role="[Geographical].[Latitude]" type="quantitative">
+        <calculation class="tableau" formula="CASE [city] WHEN &quot;Bengaluru&quot; THEN 12.9716 WHEN &quot;Mumbai&quot; THEN 19.076 WHEN &quot;Delhi NCR&quot; THEN 28.6139 WHEN &quot;Pune&quot; THEN 18.5204 WHEN &quot;Hyderabad&quot; THEN 17.385 WHEN &quot;Chennai&quot; THEN 13.0827 END" />
+      </column>
+      <column caption="City Longitude" datatype="real" name="[Calculation_CityLongitude]" role="measure" semantic-role="[Geographical].[Longitude]" type="quantitative">
+        <calculation class="tableau" formula="CASE [city] WHEN &quot;Bengaluru&quot; THEN 77.5946 WHEN &quot;Mumbai&quot; THEN 72.8777 WHEN &quot;Delhi NCR&quot; THEN 77.209 WHEN &quot;Pune&quot; THEN 73.8567 WHEN &quot;Hyderabad&quot; THEN 78.4867 WHEN &quot;Chennai&quot; THEN 80.2707 END" />
+      </column>
+      <drill-paths>
+        <drill-path name="City to Category">
+          <field>[city]</field>
+          <field>[category]</field>
+        </drill-path>
+      </drill-paths>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name="Tableau" />
+  </mapsources>
+  <worksheets>
+    <worksheet name="Total Revenue">
+      <table>
+        <view>
+          <datasources>
+            <datasource name="federated.citycategory" />
+            <datasource name="Parameters" />
+          </datasources>
+          <datasource-dependencies datasource="federated.citycategory">
+            <column datatype="string" name="[city]" role="dimension" type="nominal" />
+            <column datatype="string" name="[category]" role="dimension" type="nominal" />
+            <column datatype="integer" name="[bookings_count]" role="measure" type="quantitative" default-format="#,##0" />
+            <column datatype="integer" name="[revenue_inr]" role="measure" type="quantitative" default-format="₹#,##0" />
+            <column datatype="integer" name="[sla_breaches]" role="measure" type="quantitative" default-format="#,##0" />
+            <column caption="SLA Breach Rate" datatype="real" name="[Calculation_SLABreachRate]" role="measure" type="quantitative" default-format="0.0%">
+              <calculation class="tableau" formula="SUM([sla_breaches]) / SUM([bookings_count])" />
+            </column>
+            <column caption="Month Focus Label" datatype="string" name="[Calculation_MonthFocusLabel]" role="dimension" type="nominal">
+              <calculation class="tableau" formula="[Parameters].[Month Focus]" />
+            </column>
+            <column caption="City Latitude" datatype="real" name="[Calculation_CityLatitude]" role="measure" type="quantitative" semantic-role="[Geographical].[Latitude]">
+              <calculation class="tableau" formula="CASE [city] WHEN &quot;Bengaluru&quot; THEN 12.9716 WHEN &quot;Mumbai&quot; THEN 19.076 WHEN &quot;Delhi NCR&quot; THEN 28.6139 WHEN &quot;Pune&quot; THEN 18.5204 WHEN &quot;Hyderabad&quot; THEN 17.385 WHEN &quot;Chennai&quot; THEN 13.0827 END" />
+            </column>
+            <column caption="City Longitude" datatype="real" name="[Calculation_CityLongitude]" role="measure" type="quantitative" semantic-role="[Geographical].[Longitude]">
+              <calculation class="tableau" formula="CASE [city] WHEN &quot;Bengaluru&quot; THEN 77.5946 WHEN &quot;Mumbai&quot; THEN 72.8777 WHEN &quot;Delhi NCR&quot; THEN 77.209 WHEN &quot;Pune&quot; THEN 73.8567 WHEN &quot;Hyderabad&quot; THEN 78.4867 WHEN &quot;Chennai&quot; THEN 80.2707 END" />
+            </column>
+            <column-instance column="[city]" derivation="None" name="[none:city:nk]" pivot="key" type="nominal" />
+            <column-instance column="[category]" derivation="None" name="[none:category:nk]" pivot="key" type="nominal" />
+            <column-instance column="[bookings_count]" derivation="Sum" name="[sum:bookings_count:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[revenue_inr]" derivation="Sum" name="[sum:revenue_inr:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[sla_breaches]" derivation="Sum" name="[sum:sla_breaches:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_SLABreachRate]" derivation="User" name="[usr:Calculation_SLABreachRate:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_MonthFocusLabel]" derivation="None" name="[none:Calculation_MonthFocusLabel:nk]" pivot="key" type="nominal" />
+            <column-instance column="[Calculation_CityLatitude]" derivation="Avg" name="[avg:Calculation_CityLatitude:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_CityLongitude]" derivation="Avg" name="[avg:Calculation_CityLongitude:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[federated.citycategory].[none:city:nk]" filter-group="1">
+            <groupfilter function="union" user:ui-domain="database" user:ui-enumeration="inclusive" user:ui-marker="enumerate">
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Bengaluru&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Chennai&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Delhi NCR&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Hyderabad&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Mumbai&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Pune&quot;" />
+            </groupfilter>
+          </filter>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="mark">
+            <format attr="mark-color" value="#1F4E79" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[federated.citycategory].[sum:revenue_inr:qk]" />
+            </encodings>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+    <worksheet name="Total Bookings">
+      <table>
+        <view>
+          <datasources>
+            <datasource name="federated.citycategory" />
+            <datasource name="Parameters" />
+          </datasources>
+          <datasource-dependencies datasource="federated.citycategory">
+            <column datatype="string" name="[city]" role="dimension" type="nominal" />
+            <column datatype="string" name="[category]" role="dimension" type="nominal" />
+            <column datatype="integer" name="[bookings_count]" role="measure" type="quantitative" default-format="#,##0" />
+            <column datatype="integer" name="[revenue_inr]" role="measure" type="quantitative" default-format="₹#,##0" />
+            <column datatype="integer" name="[sla_breaches]" role="measure" type="quantitative" default-format="#,##0" />
+            <column caption="SLA Breach Rate" datatype="real" name="[Calculation_SLABreachRate]" role="measure" type="quantitative" default-format="0.0%">
+              <calculation class="tableau" formula="SUM([sla_breaches]) / SUM([bookings_count])" />
+            </column>
+            <column caption="Month Focus Label" datatype="string" name="[Calculation_MonthFocusLabel]" role="dimension" type="nominal">
+              <calculation class="tableau" formula="[Parameters].[Month Focus]" />
+            </column>
+            <column caption="City Latitude" datatype="real" name="[Calculation_CityLatitude]" role="measure" type="quantitative" semantic-role="[Geographical].[Latitude]">
+              <calculation class="tableau" formula="CASE [city] WHEN &quot;Bengaluru&quot; THEN 12.9716 WHEN &quot;Mumbai&quot; THEN 19.076 WHEN &quot;Delhi NCR&quot; THEN 28.6139 WHEN &quot;Pune&quot; THEN 18.5204 WHEN &quot;Hyderabad&quot; THEN 17.385 WHEN &quot;Chennai&quot; THEN 13.0827 END" />
+            </column>
+            <column caption="City Longitude" datatype="real" name="[Calculation_CityLongitude]" role="measure" type="quantitative" semantic-role="[Geographical].[Longitude]">
+              <calculation class="tableau" formula="CASE [city] WHEN &quot;Bengaluru&quot; THEN 77.5946 WHEN &quot;Mumbai&quot; THEN 72.8777 WHEN &quot;Delhi NCR&quot; THEN 77.209 WHEN &quot;Pune&quot; THEN 73.8567 WHEN &quot;Hyderabad&quot; THEN 78.4867 WHEN &quot;Chennai&quot; THEN 80.2707 END" />
+            </column>
+            <column-instance column="[city]" derivation="None" name="[none:city:nk]" pivot="key" type="nominal" />
+            <column-instance column="[category]" derivation="None" name="[none:category:nk]" pivot="key" type="nominal" />
+            <column-instance column="[bookings_count]" derivation="Sum" name="[sum:bookings_count:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[revenue_inr]" derivation="Sum" name="[sum:revenue_inr:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[sla_breaches]" derivation="Sum" name="[sum:sla_breaches:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_SLABreachRate]" derivation="User" name="[usr:Calculation_SLABreachRate:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_MonthFocusLabel]" derivation="None" name="[none:Calculation_MonthFocusLabel:nk]" pivot="key" type="nominal" />
+            <column-instance column="[Calculation_CityLatitude]" derivation="Avg" name="[avg:Calculation_CityLatitude:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_CityLongitude]" derivation="Avg" name="[avg:Calculation_CityLongitude:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[federated.citycategory].[none:city:nk]" filter-group="1">
+            <groupfilter function="union" user:ui-domain="database" user:ui-enumeration="inclusive" user:ui-marker="enumerate">
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Bengaluru&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Chennai&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Delhi NCR&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Hyderabad&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Mumbai&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Pune&quot;" />
+            </groupfilter>
+          </filter>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="mark">
+            <format attr="mark-color" value="#1F4E79" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[federated.citycategory].[sum:bookings_count:qk]" />
+            </encodings>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+    <worksheet name="SLA Breach Rate">
+      <table>
+        <view>
+          <datasources>
+            <datasource name="federated.citycategory" />
+            <datasource name="Parameters" />
+          </datasources>
+          <datasource-dependencies datasource="federated.citycategory">
+            <column datatype="string" name="[city]" role="dimension" type="nominal" />
+            <column datatype="string" name="[category]" role="dimension" type="nominal" />
+            <column datatype="integer" name="[bookings_count]" role="measure" type="quantitative" default-format="#,##0" />
+            <column datatype="integer" name="[revenue_inr]" role="measure" type="quantitative" default-format="₹#,##0" />
+            <column datatype="integer" name="[sla_breaches]" role="measure" type="quantitative" default-format="#,##0" />
+            <column caption="SLA Breach Rate" datatype="real" name="[Calculation_SLABreachRate]" role="measure" type="quantitative" default-format="0.0%">
+              <calculation class="tableau" formula="SUM([sla_breaches]) / SUM([bookings_count])" />
+            </column>
+            <column caption="Month Focus Label" datatype="string" name="[Calculation_MonthFocusLabel]" role="dimension" type="nominal">
+              <calculation class="tableau" formula="[Parameters].[Month Focus]" />
+            </column>
+            <column caption="City Latitude" datatype="real" name="[Calculation_CityLatitude]" role="measure" type="quantitative" semantic-role="[Geographical].[Latitude]">
+              <calculation class="tableau" formula="CASE [city] WHEN &quot;Bengaluru&quot; THEN 12.9716 WHEN &quot;Mumbai&quot; THEN 19.076 WHEN &quot;Delhi NCR&quot; THEN 28.6139 WHEN &quot;Pune&quot; THEN 18.5204 WHEN &quot;Hyderabad&quot; THEN 17.385 WHEN &quot;Chennai&quot; THEN 13.0827 END" />
+            </column>
+            <column caption="City Longitude" datatype="real" name="[Calculation_CityLongitude]" role="measure" type="quantitative" semantic-role="[Geographical].[Longitude]">
+              <calculation class="tableau" formula="CASE [city] WHEN &quot;Bengaluru&quot; THEN 77.5946 WHEN &quot;Mumbai&quot; THEN 72.8777 WHEN &quot;Delhi NCR&quot; THEN 77.209 WHEN &quot;Pune&quot; THEN 73.8567 WHEN &quot;Hyderabad&quot; THEN 78.4867 WHEN &quot;Chennai&quot; THEN 80.2707 END" />
+            </column>
+            <column-instance column="[city]" derivation="None" name="[none:city:nk]" pivot="key" type="nominal" />
+            <column-instance column="[category]" derivation="None" name="[none:category:nk]" pivot="key" type="nominal" />
+            <column-instance column="[bookings_count]" derivation="Sum" name="[sum:bookings_count:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[revenue_inr]" derivation="Sum" name="[sum:revenue_inr:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[sla_breaches]" derivation="Sum" name="[sum:sla_breaches:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_SLABreachRate]" derivation="User" name="[usr:Calculation_SLABreachRate:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_MonthFocusLabel]" derivation="None" name="[none:Calculation_MonthFocusLabel:nk]" pivot="key" type="nominal" />
+            <column-instance column="[Calculation_CityLatitude]" derivation="Avg" name="[avg:Calculation_CityLatitude:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_CityLongitude]" derivation="Avg" name="[avg:Calculation_CityLongitude:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[federated.citycategory].[none:city:nk]" filter-group="1">
+            <groupfilter function="union" user:ui-domain="database" user:ui-enumeration="inclusive" user:ui-marker="enumerate">
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Bengaluru&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Chennai&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Delhi NCR&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Hyderabad&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Mumbai&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Pune&quot;" />
+            </groupfilter>
+          </filter>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="mark">
+            <format attr="mark-color" value="#1F4E79" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[federated.citycategory].[usr:Calculation_SLABreachRate:qk]" />
+            </encodings>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+    <worksheet name="Month Focus">
+      <table>
+        <view>
+          <datasources>
+            <datasource name="federated.citycategory" />
+            <datasource name="Parameters" />
+          </datasources>
+          <datasource-dependencies datasource="federated.citycategory">
+            <column datatype="string" name="[city]" role="dimension" type="nominal" />
+            <column datatype="string" name="[category]" role="dimension" type="nominal" />
+            <column datatype="integer" name="[bookings_count]" role="measure" type="quantitative" default-format="#,##0" />
+            <column datatype="integer" name="[revenue_inr]" role="measure" type="quantitative" default-format="₹#,##0" />
+            <column datatype="integer" name="[sla_breaches]" role="measure" type="quantitative" default-format="#,##0" />
+            <column caption="SLA Breach Rate" datatype="real" name="[Calculation_SLABreachRate]" role="measure" type="quantitative" default-format="0.0%">
+              <calculation class="tableau" formula="SUM([sla_breaches]) / SUM([bookings_count])" />
+            </column>
+            <column caption="Month Focus Label" datatype="string" name="[Calculation_MonthFocusLabel]" role="dimension" type="nominal">
+              <calculation class="tableau" formula="[Parameters].[Month Focus]" />
+            </column>
+            <column caption="City Latitude" datatype="real" name="[Calculation_CityLatitude]" role="measure" type="quantitative" semantic-role="[Geographical].[Latitude]">
+              <calculation class="tableau" formula="CASE [city] WHEN &quot;Bengaluru&quot; THEN 12.9716 WHEN &quot;Mumbai&quot; THEN 19.076 WHEN &quot;Delhi NCR&quot; THEN 28.6139 WHEN &quot;Pune&quot; THEN 18.5204 WHEN &quot;Hyderabad&quot; THEN 17.385 WHEN &quot;Chennai&quot; THEN 13.0827 END" />
+            </column>
+            <column caption="City Longitude" datatype="real" name="[Calculation_CityLongitude]" role="measure" type="quantitative" semantic-role="[Geographical].[Longitude]">
+              <calculation class="tableau" formula="CASE [city] WHEN &quot;Bengaluru&quot; THEN 77.5946 WHEN &quot;Mumbai&quot; THEN 72.8777 WHEN &quot;Delhi NCR&quot; THEN 77.209 WHEN &quot;Pune&quot; THEN 73.8567 WHEN &quot;Hyderabad&quot; THEN 78.4867 WHEN &quot;Chennai&quot; THEN 80.2707 END" />
+            </column>
+            <column-instance column="[city]" derivation="None" name="[none:city:nk]" pivot="key" type="nominal" />
+            <column-instance column="[category]" derivation="None" name="[none:category:nk]" pivot="key" type="nominal" />
+            <column-instance column="[bookings_count]" derivation="Sum" name="[sum:bookings_count:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[revenue_inr]" derivation="Sum" name="[sum:revenue_inr:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[sla_breaches]" derivation="Sum" name="[sum:sla_breaches:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_SLABreachRate]" derivation="User" name="[usr:Calculation_SLABreachRate:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_MonthFocusLabel]" derivation="None" name="[none:Calculation_MonthFocusLabel:nk]" pivot="key" type="nominal" />
+            <column-instance column="[Calculation_CityLatitude]" derivation="Avg" name="[avg:Calculation_CityLatitude:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_CityLongitude]" derivation="Avg" name="[avg:Calculation_CityLongitude:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[federated.citycategory].[none:city:nk]" filter-group="1">
+            <groupfilter function="union" user:ui-domain="database" user:ui-enumeration="inclusive" user:ui-marker="enumerate">
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Bengaluru&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Chennai&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Delhi NCR&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Hyderabad&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Mumbai&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Pune&quot;" />
+            </groupfilter>
+          </filter>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="mark">
+            <format attr="mark-color" value="#1F4E79" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[federated.citycategory].[none:Calculation_MonthFocusLabel:nk]" />
+            </encodings>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+    <worksheet name="Revenue by Category">
+      <table>
+        <view>
+          <datasources>
+            <datasource name="federated.citycategory" />
+            <datasource name="Parameters" />
+          </datasources>
+          <datasource-dependencies datasource="federated.citycategory">
+            <column datatype="string" name="[city]" role="dimension" type="nominal" />
+            <column datatype="string" name="[category]" role="dimension" type="nominal" />
+            <column datatype="integer" name="[bookings_count]" role="measure" type="quantitative" default-format="#,##0" />
+            <column datatype="integer" name="[revenue_inr]" role="measure" type="quantitative" default-format="₹#,##0" />
+            <column datatype="integer" name="[sla_breaches]" role="measure" type="quantitative" default-format="#,##0" />
+            <column caption="SLA Breach Rate" datatype="real" name="[Calculation_SLABreachRate]" role="measure" type="quantitative" default-format="0.0%">
+              <calculation class="tableau" formula="SUM([sla_breaches]) / SUM([bookings_count])" />
+            </column>
+            <column caption="Month Focus Label" datatype="string" name="[Calculation_MonthFocusLabel]" role="dimension" type="nominal">
+              <calculation class="tableau" formula="[Parameters].[Month Focus]" />
+            </column>
+            <column caption="City Latitude" datatype="real" name="[Calculation_CityLatitude]" role="measure" type="quantitative" semantic-role="[Geographical].[Latitude]">
+              <calculation class="tableau" formula="CASE [city] WHEN &quot;Bengaluru&quot; THEN 12.9716 WHEN &quot;Mumbai&quot; THEN 19.076 WHEN &quot;Delhi NCR&quot; THEN 28.6139 WHEN &quot;Pune&quot; THEN 18.5204 WHEN &quot;Hyderabad&quot; THEN 17.385 WHEN &quot;Chennai&quot; THEN 13.0827 END" />
+            </column>
+            <column caption="City Longitude" datatype="real" name="[Calculation_CityLongitude]" role="measure" type="quantitative" semantic-role="[Geographical].[Longitude]">
+              <calculation class="tableau" formula="CASE [city] WHEN &quot;Bengaluru&quot; THEN 77.5946 WHEN &quot;Mumbai&quot; THEN 72.8777 WHEN &quot;Delhi NCR&quot; THEN 77.209 WHEN &quot;Pune&quot; THEN 73.8567 WHEN &quot;Hyderabad&quot; THEN 78.4867 WHEN &quot;Chennai&quot; THEN 80.2707 END" />
+            </column>
+            <column-instance column="[city]" derivation="None" name="[none:city:nk]" pivot="key" type="nominal" />
+            <column-instance column="[category]" derivation="None" name="[none:category:nk]" pivot="key" type="nominal" />
+            <column-instance column="[bookings_count]" derivation="Sum" name="[sum:bookings_count:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[revenue_inr]" derivation="Sum" name="[sum:revenue_inr:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[sla_breaches]" derivation="Sum" name="[sum:sla_breaches:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_SLABreachRate]" derivation="User" name="[usr:Calculation_SLABreachRate:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_MonthFocusLabel]" derivation="None" name="[none:Calculation_MonthFocusLabel:nk]" pivot="key" type="nominal" />
+            <column-instance column="[Calculation_CityLatitude]" derivation="Avg" name="[avg:Calculation_CityLatitude:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_CityLongitude]" derivation="Avg" name="[avg:Calculation_CityLongitude:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[federated.citycategory].[none:city:nk]" filter-group="1">
+            <groupfilter function="union" user:ui-domain="database" user:ui-enumeration="inclusive" user:ui-marker="enumerate">
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Bengaluru&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Chennai&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Delhi NCR&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Hyderabad&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Mumbai&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Pune&quot;" />
+            </groupfilter>
+          </filter>
+          <aggregation value="true" />
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort="[federated.citycategory].[none:category:nk]" direction="DESC" measure-to-sort-by="[federated.citycategory].[sum:revenue_inr:qk]" />
+          </shelf-sorts>
+        </view>
+        <style>
+          <style-rule element="mark">
+            <format attr="mark-color" value="#1F4E79" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Automatic" />
+            <encodings>
+              <color column="[federated.citycategory].[sum:revenue_inr:qk]" />
+              <text column="[federated.citycategory].[usr:Calculation_SLABreachRate:qk]" />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.citycategory].[none:category:nk]</rows>
+        <cols>[federated.citycategory].[sum:revenue_inr:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name="Revenue by City">
+      <table>
+        <view>
+          <datasources>
+            <datasource name="federated.citycategory" />
+            <datasource name="Parameters" />
+          </datasources>
+          <datasource-dependencies datasource="federated.citycategory">
+            <column datatype="string" name="[city]" role="dimension" type="nominal" />
+            <column datatype="string" name="[category]" role="dimension" type="nominal" />
+            <column datatype="integer" name="[bookings_count]" role="measure" type="quantitative" default-format="#,##0" />
+            <column datatype="integer" name="[revenue_inr]" role="measure" type="quantitative" default-format="₹#,##0" />
+            <column datatype="integer" name="[sla_breaches]" role="measure" type="quantitative" default-format="#,##0" />
+            <column caption="SLA Breach Rate" datatype="real" name="[Calculation_SLABreachRate]" role="measure" type="quantitative" default-format="0.0%">
+              <calculation class="tableau" formula="SUM([sla_breaches]) / SUM([bookings_count])" />
+            </column>
+            <column caption="Month Focus Label" datatype="string" name="[Calculation_MonthFocusLabel]" role="dimension" type="nominal">
+              <calculation class="tableau" formula="[Parameters].[Month Focus]" />
+            </column>
+            <column caption="City Latitude" datatype="real" name="[Calculation_CityLatitude]" role="measure" type="quantitative" semantic-role="[Geographical].[Latitude]">
+              <calculation class="tableau" formula="CASE [city] WHEN &quot;Bengaluru&quot; THEN 12.9716 WHEN &quot;Mumbai&quot; THEN 19.076 WHEN &quot;Delhi NCR&quot; THEN 28.6139 WHEN &quot;Pune&quot; THEN 18.5204 WHEN &quot;Hyderabad&quot; THEN 17.385 WHEN &quot;Chennai&quot; THEN 13.0827 END" />
+            </column>
+            <column caption="City Longitude" datatype="real" name="[Calculation_CityLongitude]" role="measure" type="quantitative" semantic-role="[Geographical].[Longitude]">
+              <calculation class="tableau" formula="CASE [city] WHEN &quot;Bengaluru&quot; THEN 77.5946 WHEN &quot;Mumbai&quot; THEN 72.8777 WHEN &quot;Delhi NCR&quot; THEN 77.209 WHEN &quot;Pune&quot; THEN 73.8567 WHEN &quot;Hyderabad&quot; THEN 78.4867 WHEN &quot;Chennai&quot; THEN 80.2707 END" />
+            </column>
+            <column-instance column="[city]" derivation="None" name="[none:city:nk]" pivot="key" type="nominal" />
+            <column-instance column="[category]" derivation="None" name="[none:category:nk]" pivot="key" type="nominal" />
+            <column-instance column="[bookings_count]" derivation="Sum" name="[sum:bookings_count:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[revenue_inr]" derivation="Sum" name="[sum:revenue_inr:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[sla_breaches]" derivation="Sum" name="[sum:sla_breaches:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_SLABreachRate]" derivation="User" name="[usr:Calculation_SLABreachRate:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_MonthFocusLabel]" derivation="None" name="[none:Calculation_MonthFocusLabel:nk]" pivot="key" type="nominal" />
+            <column-instance column="[Calculation_CityLatitude]" derivation="Avg" name="[avg:Calculation_CityLatitude:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_CityLongitude]" derivation="Avg" name="[avg:Calculation_CityLongitude:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[federated.citycategory].[none:city:nk]" filter-group="1">
+            <groupfilter function="union" user:ui-domain="database" user:ui-enumeration="inclusive" user:ui-marker="enumerate">
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Bengaluru&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Chennai&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Delhi NCR&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Hyderabad&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Mumbai&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Pune&quot;" />
+            </groupfilter>
+          </filter>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="mark">
+            <format attr="mark-color" value="#1F4E79" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Circle" />
+            <encodings>
+              <color column="[federated.citycategory].[sum:revenue_inr:qk]" />
+              <size column="[federated.citycategory].[sum:revenue_inr:qk]" />
+              <lod column="[federated.citycategory].[none:city:nk]" />
+              <text column="[federated.citycategory].[none:city:nk]" />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.citycategory].[avg:Calculation_CityLatitude:qk]</rows>
+        <cols>[federated.citycategory].[avg:Calculation_CityLongitude:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name="City Category Drilldown">
+      <table>
+        <view>
+          <datasources>
+            <datasource name="federated.citycategory" />
+            <datasource name="Parameters" />
+          </datasources>
+          <datasource-dependencies datasource="federated.citycategory">
+            <column datatype="string" name="[city]" role="dimension" type="nominal" />
+            <column datatype="string" name="[category]" role="dimension" type="nominal" />
+            <column datatype="integer" name="[bookings_count]" role="measure" type="quantitative" default-format="#,##0" />
+            <column datatype="integer" name="[revenue_inr]" role="measure" type="quantitative" default-format="₹#,##0" />
+            <column datatype="integer" name="[sla_breaches]" role="measure" type="quantitative" default-format="#,##0" />
+            <column caption="SLA Breach Rate" datatype="real" name="[Calculation_SLABreachRate]" role="measure" type="quantitative" default-format="0.0%">
+              <calculation class="tableau" formula="SUM([sla_breaches]) / SUM([bookings_count])" />
+            </column>
+            <column caption="Month Focus Label" datatype="string" name="[Calculation_MonthFocusLabel]" role="dimension" type="nominal">
+              <calculation class="tableau" formula="[Parameters].[Month Focus]" />
+            </column>
+            <column caption="City Latitude" datatype="real" name="[Calculation_CityLatitude]" role="measure" type="quantitative" semantic-role="[Geographical].[Latitude]">
+              <calculation class="tableau" formula="CASE [city] WHEN &quot;Bengaluru&quot; THEN 12.9716 WHEN &quot;Mumbai&quot; THEN 19.076 WHEN &quot;Delhi NCR&quot; THEN 28.6139 WHEN &quot;Pune&quot; THEN 18.5204 WHEN &quot;Hyderabad&quot; THEN 17.385 WHEN &quot;Chennai&quot; THEN 13.0827 END" />
+            </column>
+            <column caption="City Longitude" datatype="real" name="[Calculation_CityLongitude]" role="measure" type="quantitative" semantic-role="[Geographical].[Longitude]">
+              <calculation class="tableau" formula="CASE [city] WHEN &quot;Bengaluru&quot; THEN 77.5946 WHEN &quot;Mumbai&quot; THEN 72.8777 WHEN &quot;Delhi NCR&quot; THEN 77.209 WHEN &quot;Pune&quot; THEN 73.8567 WHEN &quot;Hyderabad&quot; THEN 78.4867 WHEN &quot;Chennai&quot; THEN 80.2707 END" />
+            </column>
+            <column-instance column="[city]" derivation="None" name="[none:city:nk]" pivot="key" type="nominal" />
+            <column-instance column="[category]" derivation="None" name="[none:category:nk]" pivot="key" type="nominal" />
+            <column-instance column="[bookings_count]" derivation="Sum" name="[sum:bookings_count:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[revenue_inr]" derivation="Sum" name="[sum:revenue_inr:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[sla_breaches]" derivation="Sum" name="[sum:sla_breaches:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_SLABreachRate]" derivation="User" name="[usr:Calculation_SLABreachRate:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_MonthFocusLabel]" derivation="None" name="[none:Calculation_MonthFocusLabel:nk]" pivot="key" type="nominal" />
+            <column-instance column="[Calculation_CityLatitude]" derivation="Avg" name="[avg:Calculation_CityLatitude:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_CityLongitude]" derivation="Avg" name="[avg:Calculation_CityLongitude:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[federated.citycategory].[none:city:nk]" filter-group="1">
+            <groupfilter function="union" user:ui-domain="database" user:ui-enumeration="inclusive" user:ui-marker="enumerate">
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Bengaluru&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Chennai&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Delhi NCR&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Hyderabad&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Mumbai&quot;" />
+              <groupfilter function="member" level="[none:city:nk]" member="&quot;Pune&quot;" />
+            </groupfilter>
+          </filter>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="mark">
+            <format attr="mark-color" value="#1F4E79" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Automatic" />
+            <encodings>
+              <color column="[federated.citycategory].[sum:revenue_inr:qk]" />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.citycategory].[none:city:nk]</rows>
+        <cols>[federated.citycategory].[sum:revenue_inr:qk]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <dashboard name="Service Ops Dashboard">
+    <style />
+    <size maxheight="1000" maxwidth="1400" minheight="800" minwidth="1100" />
+    <zones>
+      <zone h="100000" id="34603" w="100000" x="0" y="0" type="layout-basic">
+        <zone h="99000" id="34222" w="99000" x="500" y="500" type="layout-flow" param="vert">
+          <zone h="14000" id="34222" w="99000" x="500" y="500" type="layout-flow" param="horz">
+            <zone h="13000" id="59718" w="31000" x="500" y="500" type="worksheet" name="Total Revenue" />
+            <zone h="13000" id="32482" w="31000" x="32500" y="500" type="worksheet" name="Total Bookings" />
+            <zone h="13000" id="70984" w="31000" x="64500" y="500" type="worksheet" name="SLA Breach Rate" />
+          </zone>
+          <zone h="8000" id="31340" w="99000" x="500" y="15000" type="layout-flow" param="horz">
+            <zone h="7000" id="28157" w="24000" x="500" y="15000" type="worksheet" name="Month Focus" />
+            <zone h="7000" id="59935" w="28000" x="25000" y="15000" type="paramctrl" name="Month Focus" param="[Parameters].[Month Focus]" />
+            <zone h="7000" id="17667" w="30000" x="54000" y="15000" type="filter" name="City" param="[federated.citycategory].[none:city:nk]" />
+          </zone>
+          <zone h="42000" id="21108" w="99000" x="500" y="24000" type="layout-flow" param="horz">
+            <zone h="40000" id="60548" w="49000" x="500" y="24000" type="worksheet" name="Revenue by Category" />
+            <zone h="40000" id="72015" w="49000" x="50000" y="24000" type="worksheet" name="Revenue by City" />
+          </zone>
+          <zone h="30000" id="62677" w="99000" x="500" y="67000" type="worksheet" name="City Category Drilldown" />
+        </zone>
+      </zone>
+    </zones>
+  </dashboard>
+  <windows source-height="30">
+    <window class="dashboard" name="Service Ops Dashboard">
+      <viewpoints>
+        <viewpoint name="Total Revenue" />
+        <viewpoint name="Total Bookings" />
+        <viewpoint name="SLA Breach Rate" />
+        <viewpoint name="Month Focus" />
+        <viewpoint name="Revenue by Category" />
+        <viewpoint name="Revenue by City" />
+        <viewpoint name="City Category Drilldown" />
+      </viewpoints>
+    </window>
+  </windows>
+</workbook>
