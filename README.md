@@ -11,11 +11,11 @@ Reconciled totals, after removing the three test bookings and inserting B9001, B
 
 ## Tableau Public dashboard
 
-Live dashboard: PASTE_YOUR_TABLEAU_PUBLIC_URL_HERE
+Live dashboard: https://public.tableau.com/app/profile/veena.m1788/viz/UrbanCompanyServiceOps/Dashboard1
 
-Build the dashboard in Tableau Public from `city_category_summary.csv` only. Do not connect `bookings.csv`. That file is the pre-clean extract and its revenue is ₹796 off this total.
+The dashboard was built in Tableau Public from `city_category_summary.csv` only. It was not connected to `bookings.csv`. That file is the pre-clean extract and its revenue is ₹796 off this total.
 
-The published dashboard needs:
+The published dashboard contains:
 
 - Total Revenue ₹10,47,973 and Total Bookings 600 at the top, plus SLA Breach Rate = SUM([sla_breaches]) / SUM([bookings_count]), which is 13.2% on the full extract.
 - Parameter Month Focus with January, February, and March, used by the calculated field Month Focus Label. The reconciled extract covers 2026-01, 2026-02, and 2026-03 and has no separate month column, so the parameter labels the month under review.
